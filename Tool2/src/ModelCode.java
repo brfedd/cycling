@@ -59,8 +59,13 @@ public class ModelCode extends Application{
 	
 	NumberAxis yAxis = new NumberAxis();
 	
+	NumberAxis xAxis2 = new NumberAxis();
+	
+	NumberAxis yAxis2 = new NumberAxis();
+	
 	
 	LineChart<Number, Number> linechart = new LineChart<Number, Number>(xAxis, yAxis);
+	LineChart<Number, Number> linechart2 = new LineChart<Number, Number>(xAxis2, yAxis2);
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -465,8 +470,11 @@ public class ModelCode extends Application{
           	xAxis.setLabel("Day");
           	
           
-          	yAxis.setLabel("Ammonium and Nitrate Concentration");
+          	yAxis.setLabel("Amm Concentration");
           
+          	xAxis2.setLabel("Day");
+          	yAxis2.setLabel("Nit Concentration");
+          	
     		
     		XYChart.Series<Number, Number> data1 = new XYChart.Series<>();
     		XYChart.Series<Number, Number> data2 = new XYChart.Series<>();
@@ -480,8 +488,9 @@ public class ModelCode extends Application{
     				}
     				data1.setName("Ammonium");
     				data2.setName("Nitrate");
+    				
     				linechart.getData().add(data1);
-    				linechart.getData().add(data2);
+    				linechart2.getData().add(data2);
     		label5.setText("");
     		
             }catch(Exception ex) {
@@ -514,7 +523,12 @@ public class ModelCode extends Application{
 		
 		linechart.setLayoutX(200);
 		linechart.setLayoutY(150);
+		linechart.setMaxHeight(200);
 		pane.getChildren().add(linechart);
+		linechart2.setLayoutX(200);
+		linechart2.setLayoutY(360);
+		linechart2.setMaxHeight(200);
+		pane.getChildren().add(linechart2);
 		BackgroundFill backgroundfill = new BackgroundFill(Color.BEIGE, CornerRadii.EMPTY, Insets.EMPTY);
 		Background background = new Background(backgroundfill);
 		pane.setBackground(background);
